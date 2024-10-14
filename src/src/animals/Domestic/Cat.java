@@ -3,12 +3,12 @@ package animals.Domestic;
 import animals.Animal;
 
 public class Cat extends Animal {
-    public Cat(String name, int age) {
-        super(name, age);
+    public Cat(String name, String birthDate, String commands) {
+        super(name, birthDate, commands);
     }
 
     @Override
-    public void displayCommands() {
-        System.out.println("Cat commands: Jump, Catch, Sleep");
+    public String getType() {
+        return "Кошка";
     }
 }

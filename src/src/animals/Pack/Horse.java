@@ -3,12 +3,12 @@ package animals.Pack;
 import animals.Animal;
 
 public class Horse extends Animal {
-    public Horse(String name, int age) {
-        super(name, age);
+    public Horse(String name, String birthDate, String commands) {
+        super(name, birthDate, commands);
     }
 
     @Override
-    public void displayCommands() {
-        System.out.println("Horse commands: Gallop, Jump, Stand");
+    public String getType() {
+        return "Лошадь";
     }
 }

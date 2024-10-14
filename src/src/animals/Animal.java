@@ -1,21 +1,40 @@
 package animals;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
+
 public abstract class Animal {
     protected String name;
-    protected int age;
+    protected LocalDate birthDate;
+    protected List<String> commands;
 
-    public Animal(String name, int age) {
+    public Animal(String name, String birthDate, String commandList) {
         this.name = name;
-        this.age = age;
+        this.birthDate = LocalDate.parse(birthDate, DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+        this.commands = new ArrayList<>(List.of(commandList.split(", ")));
     }
 
     public String getName() {
         return name;
     }
 
-    public int getAge() {
-        return age;
+    public LocalDate getBirthDate() {
+        return birthDate;
     }
 
-    public abstract void displayCommands();
+    public List<String> getCommands() {
+        return commands;
+    }
+
+    public void learnCommand(String newCommand) {
+        commands.add(newCommand);
+    }
+
+    public abstract String getType(); // Для возвращения типа животного
+
+    public void displayCommands() {
+        System.out.println("Commands: " + String.join(", ", commands));
+    }
 }
